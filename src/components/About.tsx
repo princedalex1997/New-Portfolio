@@ -40,7 +40,7 @@ export default function About() {
   const imgStyle = "w-40 h-52 md:w-56 md:h-72 absolute z-0 object-cover rounded-2xl shadow-2xl shadow-blue-500/5 border border-slate-800  transition-all duration-700 ease-in-out";
 
   const professionalHighlights = [
-    "Frontend Expertise — Over 3+ years of hands-on experience architecting scalable, high-performance web applications and PWAs 🚀",
+    "Frontend Expertise — Over 3+ years of hands-on experience architecting scalable , high-performance web applications and PWAs 🚀",
     "Modern Stack Specialist — Deep mastery of React.js ⚛️, Next.js ▲, and advanced frontend architectures for enterprise-grade SPAs.",
     "Design & Motion — Expert in Tailwind CSS 💨 and Framer Motion 🎞️ to deliver pixel-perfect, highly interactive responsive interfaces.",
     "Performance Engineering — Dedicated focus on Core Web Vitals 📈, performance optimization ⚡, and strict accessibility standards ♿.",
@@ -52,10 +52,8 @@ export default function About() {
 
   return (
     <section className="relative flex justify-center items-center w-full overflow-hidden min-h-screen  ">
-
       {/* Dynamic Background Element */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150  blur-[140px] rounded-full z-0" />
-
+      <div className="absolute   top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150  blur-[140px] rounded-full z-0" />
       <motion.div
         initial="initial"
         whileInView="animate"
@@ -65,13 +63,10 @@ export default function About() {
         {/* Floating Images with refined coordinates to avoid text overlap */}
         <motion.img src={a4} variants={imageVariants} className={imgStyle}
           custom={{ top: "-15%", left: "-10%", xPos: "0%", yPos: "0%", rotate: -12 }} />
-
         <motion.img src={a3} variants={imageVariants} className={imgStyle}
           custom={{ top: "-20%", left: "110%", xPos: "-100%", yPos: "0%", rotate: 8 }} />
-
         <motion.img src={a1} variants={imageVariants} className={imgStyle}
           custom={{ top: "105%", left: "-12%", xPos: "0%", yPos: "-100%", rotate: -6 }} />
-
         <motion.img src={a2} variants={imageVariants} className={imgStyle}
           custom={{ top: "110%", left: "115%", xPos: "-100%", yPos: "-100%", rotate: 14 }} />
 

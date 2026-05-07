@@ -9,7 +9,6 @@ const skills = [
 ];
 
 function Cloud({ count = 8, radius = 4 }) {
-  // Use 'any' type for group ref because THREE.Group typing can sometimes mismatch with R3F group
   const group = useRef<any>(null);
   const [hovered, setHovered] = useState(false);
 
@@ -46,7 +45,7 @@ function Cloud({ count = 8, radius = 4 }) {
       onPointerOver={() => setHovered(true)} 
       onPointerOut={() => setHovered(false)}
     >
-      {words.map(([pos, word], index) => (
+      {words.map(([pos, word],index) => (
         <Text
           key={index}
           position={pos as THREE.Vector3}
