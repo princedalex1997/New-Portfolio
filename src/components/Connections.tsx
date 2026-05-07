@@ -4,12 +4,14 @@ import { IoLogoGithub } from "react-icons/io5";
 import { MdMailOutline } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
+import type { Variants } from "framer-motion";
+
 
 
 
 const Connections = () => {
 
-    const phone = "7034628878";
+    const phone = 7034628878;
     const message = "Hello! I'm interested in your service.";
     const socialLinks = [
         {
@@ -45,7 +47,7 @@ const Connections = () => {
         }
     ];
 
-    const containerVariants = {
+    const containerVariants:Variants = {
         hidden: { opacity: 0, x: -50 },
         visible: {
             opacity: 1,
@@ -58,7 +60,7 @@ const Connections = () => {
         }
     };
 
-    const itemVariants = {
+    const itemVariants:Variants = {
         hidden: { opacity: 0, x: -30 },
         visible: {
             opacity: 1,

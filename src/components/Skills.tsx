@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import JS from "../assets/ic/javascript-programming-language-icon.png"
 import TS from "../assets/ic/typescript-programming-language-icon.png"
@@ -13,7 +12,6 @@ import EX from "../assets/ic/express.webp"
 import MY from "../assets/ic/mysql-icon.png"
 import MG from "../assets/ic/mongodb-icon.png"
 import PY from "../assets/ic/python-programming-language-icon.png"
-import { TypingEffect } from './UI/TextAnimation.tsx';
 
 const Skills = () => {
   const frontend = [
@@ -37,7 +35,19 @@ const database = [
   { name: 'Python', logo: PY, brandColor: 'from-slate-100 to-slate-500', skillLevel: 'Beginner' },
   { name: 'MySQL', logo: MY, brandColor: 'from-blue-400 to-cyan-600', skillLevel: 'Intermediate' },
 ];
-  const TechItem = ({ tech, delay }) => (
+type LIST = {
+  name: string;
+  logo: string;
+  brandColor: string;
+  skillLevel: string;
+};
+
+type TechItemProps = {
+  tech: LIST;
+  delay: number;
+};
+
+const TechItem = ({ tech, delay }: TechItemProps) => (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -47,11 +57,11 @@ const database = [
       className="group relative flex items-center gap-4 p-4 rounded-2xl  border border-white/10 hover:border-white/20 transition-all duration-300 overflow-hidden"
     >
       {/* Dynamic Background Glow on Hover */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${tech.brandColor} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
+      <div className={`absolute inset-0 bg-linear-to-br ${tech.brandColor} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
       
       {/* Icon Square */}
       {tech?.logo && 
-      <div className={`w-12 h-12 rounded-xl  flex items-center justify-center items-center text-xs font-black text-slate-950 shadow-lg`}>
+      <div className={`w-12 h-12 rounded-xl  flex  justify-center items-center text-xs font-black text-slate-950 shadow-lg`}>
        
        <img src={tech?.logo} loading='lazy' alt={tech.name} className='rounded-xl' /> 
       </div>
@@ -62,11 +72,11 @@ const database = [
       </div>
 
       {/* Decorative Corner Light */}
-      <div className={`absolute -right-2 -bottom-2 w-8 h-8 bg-gradient-to-br ${tech.brandColor} blur-xl opacity-0 group-hover:opacity-40 transition-opacity`} />
+      <div className={`absolute -right-2 -bottom-2 w-8 h-8 bg-linear-to-br ${tech.brandColor} blur-xl opacity-0 group-hover:opacity-40 transition-opacity`} />
     </motion.div>
   );
 
-  const SectionTitle = ({ title }) => (
+  const SectionTitle = ({ title="Hai" }) => (
     <div className="w-full md:w-1/4 mb-8 md:mb-0">
       <motion.div 
         initial={{ opacity: 0, x: -20 }}
@@ -105,7 +115,7 @@ const database = [
           <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter uppercase leading-none">
             Tech
              {/* <TypingEffect text="Tech" /> */}
-             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-500">Arsenal
+             <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-500">Arsenal
                {/* <TypingEffect text="Tech" /> */}
              </span>
            

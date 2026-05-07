@@ -28,7 +28,6 @@ export function TypingEffect({ text = 'Typing Effect' }: { text: string }) {
  
 export function LettersPullUp({
   text,
-  className = '',
 }: {
   text: string;
   className?: string;
@@ -69,17 +68,30 @@ export function LettersPullUp({
 }
 
 
-export default function AnimatedCounter({ value, direction = "up" }) {
-  const ref = useRef(null);
-  const motionValue = useMotionValue(direction === "down" ? value : 0);
-  
-  // Spring configuration: adjust mass/stiffness for different "feels"
+type AnimateType = {
+  value: number;
+  direction?: "up" | "down";
+};
+
+export default function AnimatedCounter({
+  value,
+  direction = "up",
+}: AnimateType) {
+  const ref = useRef<HTMLSpanElement | null>(null);
+
+  const motionValue = useMotionValue(
+    direction === "down" ? value : 0
+  );
+
   const springValue = useSpring(motionValue, {
     damping: 30,
     stiffness: 100,
   });
 
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "-100px",
+  });
 
   useEffect(() => {
     if (isInView) {
@@ -88,19 +100,16 @@ export default function AnimatedCounter({ value, direction = "up" }) {
   }, [motionValue, value, isInView]);
 
   useEffect(() => {
-    springValue.on("change", (latest) => {
+    const unsubscribe = springValue.on("change", (latest) => {
       if (ref.current) {
-        // We use Intl.NumberFormat for professional comma-separated numbers
         ref.current.textContent = Intl.NumberFormat("en-US").format(
-          latest.toFixed(0)
+          Number(latest.toFixed(0))
         );
       }
     });
+
+    return () => unsubscribe();
   }, [springValue]);
 
-  return (
-    <span
-      ref={ref}
-    />
-  );
+  return <span ref={ref} />;
 }

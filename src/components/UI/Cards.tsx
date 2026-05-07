@@ -1,18 +1,32 @@
 import { memo, useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { TypingEffect } from "./TextAnimation";
+import type { MotionValue } from "framer-motion";
+
+
+type CardsProps = {
+  i?: number;
+  title: string;
+  description: string;
+  src: string;
+  color: string;
+  accent: string;
+  progress: MotionValue<number>;
+  range?: number[];
+  targetScale?: number;
+};
 
 const Cards = ({
-    i = 0,
-    title,
-    description,
-    src,
-    color,
-    progress = 0,
-    range = [0, 1],
-    targetScale = 1,
-    accent,
-}) => {
+  i = 0,
+  title,
+  description,
+  src,
+  color,
+  progress,
+  range = [0, 1],
+  targetScale = 1,
+  accent,
+}: CardsProps) => {
     const container = useRef(null);
 
     const { scrollYProgress } = useScroll({
@@ -46,11 +60,11 @@ const Cards = ({
                     willChange: "transform, scale",
                     z: 0, 
                 }}
-                className="flex flex-col relative w-full max-w-[1000px] min-h-[550px] md:h-[650px] rounded-[40px] p-6 md:p-12 origin-top shadow-2xl overflow-hidden border border-white/10"
+                className="flex flex-col relative w-full max-w-250 min-h-137.5 md:h-162.5 rounded-[40px] p-6 md:p-12 origin-top shadow-2xl overflow-hidden border border-white/10"
             >
                 {/* 3. PERFORMANCE: Static elements should use translateZ(0) to stay on their own layer */}
                 <div className="absolute inset-0 border-t border-l border-white/20 rounded-[40px] pointer-events-none z-30 transform-gpu" style={{ transform: 'translateZ(0)' }} />
-                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent pointer-events-none" />
 
                 <h2 className="text-center text-3xl md:text-[42px] font-black tracking-tighter text-white leading-none uppercase md:mb-10 flex flex-col md:flex-row items-center justify-center">
                     <span className="opacity-20 font-mono text-sm tracking-[0.4em] md:mr-4 mb-2 md:mb-0">// 0{i + 1}</span>

@@ -4,10 +4,14 @@ import a2 from "../assets/images/a2.avif";
 import a3 from "../assets/images/a3.avif";
 import a4 from "../assets/images/a4.avif";
 import ScrollReveal from "./UI/ScrollReveal";
+import type { Variants } from "framer-motion";
+import { useRef } from "react";
+
 
 export default function About() {
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const imageVariants = {
+  const imageVariants: Variants = {
     initial: {
       top: "50%",
       left: "50%",
@@ -81,7 +85,7 @@ export default function About() {
             Professional Profile
           </motion.p>
 
-          <div className="max-w-5xl mx-auto px-6 py-20 bg-slate-950/50 rounded-[40px] border border-white/5 backdrop-blur-xl">
+          <div ref={containerRef} className="max-w-5xl mx-auto px-6 py-20 bg-slate-950/50 rounded-[40px] border border-white/5 backdrop-blur-xl">
             <ul className="space-y-6 md:space-y-2 list-none">
               {professionalHighlights.map((point, index) => (
                 <li key={index} className="relative pl-8">
@@ -89,6 +93,7 @@ export default function About() {
                   <span className="absolute left-0 top-3 w-2 h-2 bg-blue-500 rounded-full shadow-[0_0_10px_#3b82f6]" />
 
                   <ScrollReveal
+                    scrollContainerRef={containerRef}
                     baseOpacity={0.1}
                     enableBlur
                     blurStrength={8}

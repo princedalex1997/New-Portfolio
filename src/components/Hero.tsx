@@ -1,12 +1,14 @@
-import { motion } from "framer-motion";
+import { motion  } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { Canvas } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
 import { memo, useMemo } from "react";
 import AnimatedCounter, { LettersPullUp } from "./UI/TextAnimation";
+import type { Variants } from "framer-motion";
+
 
 // Optimized Animation Variants - using tween instead of spring
-const containerVariants = {
+const containerVariants:Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -17,7 +19,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants:Variants = {
   hidden: { opacity: 0, x: -30 },
   visible: {
     opacity: 1,
@@ -31,29 +33,42 @@ const itemVariants = {
 };
 
 // Optimized stats variants - using tween for better performance
-const statsVariants = {
+const statsVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 60,
-    rotateX: 45,
-    scale: 0.8
+    y: 40,
+    rotateX: -15,
+    scale: 0.95,
   },
-  visible: (i) => ({
+
+  visible: (i: number) => ({
     opacity: 1,
     y: 0,
     rotateX: 0,
     scale: 1,
+
     transition: {
-      delay: i * 0.05,      // Reduced from 0.1
-      type: "tween",        // Changed from spring (CPU intensive)
-      duration: 0.5,        // Optimized duration
+      delay: i * 0.08,
+      type: "tween",
+      duration: 0.6,
       ease: "easeOut",
     },
   }),
 };
 
 // Memoized stats list to prevent unnecessary re-renders
-const StatItem = memo(({ stat, index }) => (
+type Stat = {
+  number: number;
+  ic?: string;
+  label: string;
+};
+
+type StatItemProps = {
+  stat: Stat;
+  index: number;
+};
+
+const StatItem = memo(({ stat, index }: StatItemProps) => (
   <motion.div
     key={index}
     custom={index}
@@ -82,7 +97,7 @@ const StatItem = memo(({ stat, index }) => (
         delay: index * 0.05  // Optimized delay
       }}
     >
-      <AnimatedCounter value={stat.number} />
+      <AnimatedCounter value={Number(stat.number)} />
       {stat?.ic}
     </motion.p>
 
@@ -119,11 +134,11 @@ BackgroundCanvas.displayName = "BackgroundCanvas";
 
 // Main Hero component
 const Hero = memo(() => {
-  const stats = useMemo(() => [
-    { number: "3", ic: "+", label: "Years of Experience" },
-    { number: "7", ic: "+", label: "Completed Projects" },
-    { number: "10+", ic: "K+", label: "Hours Worked" },
-  ], []);
+const stats = useMemo<Stat[]>(() => [
+  { number: 3, ic: "+", label: "Years of Experience" },
+  { number: 7, ic: "+", label: "Completed Projects" },
+  { number: 10, ic: "K+", label: "Hours Worked" },
+], []);
 
   return (
     <section className="w-full min-h-screen flex items-center justify-center overflow-hidden font-sans">

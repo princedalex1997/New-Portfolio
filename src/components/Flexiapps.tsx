@@ -1,5 +1,5 @@
 
-import React, { useRef } from "react"
+import  { useRef } from "react"
 import Cards from "./UI/Cards"
 import { useScroll } from "framer-motion"
 import DecryptedText from "./UI/DecryptedText"
@@ -9,6 +9,7 @@ import bus from "../assets/pro/bus.jpg"
 import edm from "../assets/pro/edm.jpg"
 import sup from "../assets/pro/sup.png"
 import CanvasCursor from "./hooks/CanvasCursor"
+
 
 export const projects = [
   {
