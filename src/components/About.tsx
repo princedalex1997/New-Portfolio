@@ -40,7 +40,7 @@ export default function About() {
   const imgStyle = "w-40 h-52 md:w-56 md:h-72 absolute z-0 object-cover rounded-2xl shadow-2xl shadow-blue-500/5 border border-slate-800  transition-all duration-700 ease-in-out";
 
   const professionalHighlights = [
-    "Frontend Expertise — Over 3+ years of hands-on experience architecting scalable , high-performance web applications and PWAs 🚀",
+    "Frontend Expertise — Over 3+ years of hands-on experience architecting scalable, high-performance web applications and PWAs 🚀 ",
     "Modern Stack Specialist — Deep mastery of React.js ⚛️, Next.js ▲, and advanced frontend architectures for enterprise-grade SPAs.",
     "Design & Motion — Expert in Tailwind CSS 💨 and Framer Motion 🎞️ to deliver pixel-perfect, highly interactive responsive interfaces.",
     "Performance Engineering — Dedicated focus on Core Web Vitals 📈, performance optimization ⚡, and strict accessibility standards ♿.",
