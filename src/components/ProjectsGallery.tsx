@@ -84,7 +84,7 @@ const projects = [
       "#FrontendExperience"
     ],
     src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop",
-    url: "https://headphones-peach.vercel.app/",
+    url: "",
     img: head,
     color: "#0f3460",
     githubLink: "https://github.com/princedalex1997/headphones",
