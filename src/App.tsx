@@ -39,7 +39,7 @@ function App() {
   }, []);
 
   return (
-    <main className="relative bg-slate-950 w-full  selection:bg-primary/30 font-['Krona_One',sans-serif] ">
+    <main className="relative bg-slate-950 w-full  selection:bg-primary/30 font-['Krona_One',sans-serif]">
       {/* <main className="relative bg-yellow-400 w-full min-h-screen selection:bg-primary/30"> */}
       <section ref={ref}>
         <Hero />

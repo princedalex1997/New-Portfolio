@@ -2,6 +2,8 @@ import { Code, Briefcase, Download, Mail } from 'lucide-react';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 
+const resumeLink = "https://drive.google.com/file/d/1R42-GfQFv15UFB854U65hEVySqryX3xZ/view?usp=sharing"
+
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -54,7 +56,6 @@ export default function Contact() {
       setIsSubmitting(false);
     }
   };
-  const resumeLink = "https://drive.google.com/file/d/1fvQ_9bGmRydyfZ7PDLOh0JQSL4jCnJl1/view?usp=sharing"
   return (
     <footer className="w-full min-h-[80vh] flex flex-col justify-between pt-32 pb-8 px-4 md:px-12 max-w-5xl mx-auto relative overflow-hidden">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 z-10 relative">

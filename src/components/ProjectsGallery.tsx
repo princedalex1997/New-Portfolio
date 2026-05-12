@@ -144,7 +144,7 @@ const projects = [
     ],
     src: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&h=500&fit=crop",
     img: chat,
-    url: "https://your-blog.com",
+    // url: "https://your-blog.com",
     color: "#16213e",
     githubLink: "https://github.com/princedalex1997/Chat-App-MERN-",
 

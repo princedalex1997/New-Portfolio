@@ -71,7 +71,7 @@ const Connections = () => {
 
     return (
         <motion.div
-            className="fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden sm:block"
+            className="fixed left-4 top-1/2 -translate-y-1/2 z-50  sm:block -ml-5.75"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
