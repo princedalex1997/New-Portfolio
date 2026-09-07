@@ -33,6 +33,7 @@ const backend = [
 
 const database = [
   { name: 'MongoDB', logo: MG, brandColor: 'from-green-500 to-emerald-700', skillLevel: 'Intermediate' },
+  
   { name: 'MySQL', logo: MY, brandColor: 'from-blue-400 to-cyan-600', skillLevel: 'Intermediate' },
 ];
 type LIST = {

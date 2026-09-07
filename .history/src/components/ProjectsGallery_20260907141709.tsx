@@ -1,5 +1,6 @@
 import {  useRef, } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { projects } from './Flexiapps';
 import ProjectDetails from './ProjectDetails';
 import { projectsDatas } from '../lib/ProjectDatas';
 

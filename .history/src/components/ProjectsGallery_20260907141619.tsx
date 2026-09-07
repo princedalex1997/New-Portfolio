@@ -1,7 +1,7 @@
 import {  useRef, } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { projects } from './Flexiapps';
 import ProjectDetails from './ProjectDetails';
-import { projectsDatas } from '../lib/ProjectDatas';
 
 
 
@@ -26,10 +26,16 @@ const ProjectsGallery = () => {
           style={{ x }}
           className="flex gap-12 px-[10vw]" // Large gap between projects
         >
-          {projectsDatas.map((item, index) => (
+          {projects.map((item, index) => (
             // We wrap your ProjectDetails in a fixed-width container
             <div key={`${item.title}-${index}`} className="w-[85vw] md:w-[70vw] shrink-0">
-              <ProjectDetails {...item} index={index} />
+              <ProjectDetails
+                {...item}
+                index={index}
+                img={item.src}
+                tech={[]}
+                tags={[]}
+              />
             </div>
           ))}
         </motion.div>

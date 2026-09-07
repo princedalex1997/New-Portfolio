@@ -28,11 +28,11 @@ const Skills = () => {
 const backend = [
   { name: 'Node.js', logo: ND, brandColor: 'from-green-400 to-emerald-600', skillLevel: 'Intermediate' },
   { name: 'Express.js', logo: EX, brandColor: 'from-gray-300 to-slate-500', skillLevel: 'Intermediate' },
-  { name: 'Python', logo: PY, brandColor: 'from-slate-100 to-slate-500', skillLevel: 'Beginner' },
 ];
 
 const database = [
   { name: 'MongoDB', logo: MG, brandColor: 'from-green-500 to-emerald-700', skillLevel: 'Intermediate' },
+  { name: 'Python', logo: PY, brandColor: 'from-slate-100 to-slate-500', skillLevel: 'Beginner' },
   { name: 'MySQL', logo: MY, brandColor: 'from-blue-400 to-cyan-600', skillLevel: 'Intermediate' },
 ];
 type LIST = {
